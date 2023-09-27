@@ -10,7 +10,7 @@
         fetch(url)
             .then((r) => r.json())
             .then((r) => {
-                litterBox.src = r[0].urls
+                litterBox.src = r[0].url;
                 copyArea.value = r[0].url;
             })
             .catch((err) => {
