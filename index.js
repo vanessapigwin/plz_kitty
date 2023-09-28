@@ -6,18 +6,18 @@
     const copyArea = document.querySelector('#apiurl');
     const copyButton = document.querySelector('#copybutton');
 
-    const findKitty = () => {
-        fetch(url)
-            .then((r) => r.json())
-            .then((r) => {
-                litterBox.src = r[0].url;
-                copyArea.value = r[0].url;
-            })
-            .catch((err) => {
-                litterBox.src = defaultImgSrc;
-                copyArea.value = 'not your kitty, iz Fr0m rep0';
-                console.log(err)
-            })
+    const findKitty = async () => {
+        const response = await fetch(url);
+        const data = await response.json();
+        try {
+            litterBox.src = data[0].url;
+            copyArea.value = data[0].url;
+        }
+        catch (err) {
+            litterBox.src = defaultImgSrc;
+            copyArea.value = 'not your kitty, iz Fr0m rep0';
+            console.log(err)
+        }
     }
 
     const clipboardCopy = () => {
