@@ -34,11 +34,11 @@ button {
 }
 
 .copy-link {
+    margin: 0 10px; 
     display: flex;
     border-radius: 10px;
     border: solid 1px #ccc;
-    width: 50%;
-    max-width: 600px;
+    width: clamp(150px, 100%, 600px)
 }
 
 .copy-link > input {
